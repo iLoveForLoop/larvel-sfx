@@ -15,4 +15,17 @@ class ProductController extends Controller
     public function create() {
         return view('products.create');
     }
+
+    public function store(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'status' => 'required|integer',
+        ]);
+
+        Product::create($request->all());
+
+        return redirect()->route('products.index');
+    }
 }

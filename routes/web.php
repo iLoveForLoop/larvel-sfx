@@ -12,8 +12,7 @@ Route::get('/verify/{token}', [AuthController::class, 'verify'])->name('verify')
 
 
 Route::group(['middleware'=>'auth'], function() {
-    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/create',[ProductController::class, 'create']);
-
     Route::get('/logout', [AuthController::class, 'logout']);
 });
