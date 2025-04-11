@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.right-side {
+    background-image: url('../../public/images/coffee.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+label {
+    @apply block text-orange-900 italic
+}
+
+input[type=text],
+input[type=password],
+input[type=number] {
+    @apply block border border-orange-900 rounded p-2 text-orange-800 bg-white w-full
+}
+
+button.primary {
+    @apply bg-orange-950 text-white px-4 py-2 rounded hover:bg-orange-900
+}
+
+button.secondary {
+    @apply bg-orange-100 text-orange-800 border border-orange-800 px-4 py-2 rounded hover:bg-orange-200
+}
+
+
+.main-nav a{
+    @apply text-white px-4
+}
+
+#instructions {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(193, 110, 1, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-radius: 10px; /* Optional rounded corners */
+    border: 1px solid rgba(254, 144, 66, 0.3); /* Optional subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+    color: white;
+}
