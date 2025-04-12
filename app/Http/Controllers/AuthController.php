@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         if($login) return redirect('/products');
 
-        return back();
+        return back()->with('error', 'Credentials does not exist');
     }
 
     public function registrationForm() {

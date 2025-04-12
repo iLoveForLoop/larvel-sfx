@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotifyMail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -17,6 +19,7 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -24,7 +27,9 @@ class ProductController extends Controller
             'status' => 'required|integer',
         ]);
 
-        Product::create($request->all());
+        $product = Product::create($request->all());
+
+        Mail::to(auth()->user())->send(new NotifyMail($product));
 
         return redirect()->route('products.index');
     }

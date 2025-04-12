@@ -7,8 +7,8 @@
 
     <h2 class="text-2xl text-white">Create Product</h2>
 
-    <form action="{{url('/products')}}" method="post" class="w-[400px]">
-        @csrf()
+    <form action="{{url('/store-product')}}" method="POST" class="w-[400px]">
+        @csrf
 
         <div class="mb-3 mt-3">
             <label for="name">Product Name</label>
