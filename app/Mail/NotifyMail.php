@@ -39,7 +39,7 @@ class NotifyMail extends Mailable
         return new Content(
             view: 'email.notify',
             with: [
-                'user' => $this->product,
+                'product' => $this->product,
             ]
         );
     }

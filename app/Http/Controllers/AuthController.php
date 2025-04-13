@@ -22,9 +22,21 @@ class AuthController extends Controller
             'password' => 'string|required'
         ]);
 
+
+
         $login = Auth::attempt($request->only('email','password'));
 
-        if($login) return redirect('/products');
+        if($login){
+
+            $user = Auth::user();
+
+            if($user->email_verified_at){
+                return redirect('/products');
+            }
+
+            return back()->with('error', 'Your email is not verified');
+
+        }
 
         return back()->with('error', 'Credentials does not exist');
     }

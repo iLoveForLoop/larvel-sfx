@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h2>New Product is added</h2>
-    <p>Product name: {{$product->name}}</p>
-    <p>Product description: {{$product->description}}</p>
+    <p>Product name: {{ $product->name }}</p>
+    <p>Product price: {{ $product->price }}</p>
+    <p>Product description: {{ $product->description }}</p>
 </body>
+
 </html>
